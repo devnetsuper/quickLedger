@@ -1,0 +1,15 @@
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+
+    ' Check if cell A3 is selected
+    If Not Intersect(Target, Me.Range("A3")) Is Nothing Then
+        ' Clear cell B2
+        Me.Range("B2").ClearContents
+    End If
+
+    ' Check if cell A4 is selected
+    If Not Intersect(Target, Me.Range("A4")) Is Nothing Then
+        ' Run the HighlightRow macro
+        HighlightRow
+    End If
+
+End Sub

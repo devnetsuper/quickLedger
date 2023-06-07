@@ -1,0 +1,26 @@
+Sub HighlightRow()
+
+    Dim ws As Worksheet
+    Dim rng As Range
+    Dim hash As String
+    Dim match As Range
+
+    ' Set the worksheet
+    Set ws = ThisWorkbook.Sheets("verified_transactions_ledger")
+
+    ' Clear any existing formatting
+    ws.Cells.Interior.Color = xlNone
+
+    ' Get the transaction hash
+    hash = ws.Range("B2").Value
+
+    ' Find the hash in the worksheet
+    Set match = ws.Columns("E").Find(hash)
+
+    ' If a match is found, highlight the row and go to the row
+    If Not match Is Nothing Then
+        match.EntireRow.Interior.Color = RGB(255, 255, 0) ' Change color as needed
+        Application.Goto match
+    End If
+
+End Sub
